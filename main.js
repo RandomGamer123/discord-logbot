@@ -10,18 +10,13 @@ client.on('ready', () => {
 });
 
 client.on('messageDelete', message => {
-  try {
     var logchannel = 0;
     if (message.guild.id == ramtid) {
       logchannel = logchannelramt;
     } else if (message.guild.id == jclid) {
       logchannel = logchanneljcl;
     } else {
-      try { 
         message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
-      }
-      catch(err) {
-      }
     }
     var channelobj = message.guild.channels.find("name", logchannel);
       var desc = "Message sent by <@" + message.member.id +"> deleted in <#" + message.channel.id + ">";
@@ -40,13 +35,8 @@ client.on('messageDelete', message => {
         }
       }
     });
-  }
-  catch(err) {
-    message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
-  }
   });
   client.on('messageUpdate', (message, emessage) => {
-    try {
     var logchannel = 0;
     if (message.guild.id == ramtid) {
       logchannel = logchannelramt;
@@ -75,9 +65,5 @@ client.on('messageDelete', message => {
         }
       }
     });
- }
- catch(err) {
-    message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
- }
 });
 client.login(token);
