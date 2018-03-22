@@ -40,8 +40,13 @@ client.on('messageDelete', message => {
         }
       }
     });
+  }
+  catch(err) {
+    message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
+  }
   });
   client.on('messageUpdate', (message, emessage) => {
+    try {
     var logchannel = 0;
     if (message.guild.id == ramtid) {
       logchannel = logchannelramt;
