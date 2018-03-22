@@ -10,7 +10,8 @@ client.on('ready', () => {
 });
 
 client.on('messageDelete', message => {
-  try:var logchannel = 0;
+  try {
+    var logchannel = 0;
     if (message.guild.id == ramtid) {
       logchannel = logchannelramt;
     } else if (message.guild.id == jclid) {
