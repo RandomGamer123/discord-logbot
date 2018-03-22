@@ -73,8 +73,8 @@ client.on('messageDelete', message => {
         footer: {
           text: "User id of original message sender: " + message.member.id
         }
+      }
     });
-  }
  }
  catch(err) {
     message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
