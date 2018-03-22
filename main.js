@@ -4,6 +4,9 @@ const ramtid = 259943329028898816;
 const jclid = 214869811547734016;
 const logchannelramt = "modchat";
 const logchanneljcl = "log";
+var port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function() {
+console.log("Listening on Port 3000");
 const token = 'NDI2MzEyODM1NzQ5MTE3OTcy.DZUKUA.U-aBxhurxk5iTyOI6ic8zcxUO-Y';
 client.on('ready', () => {
   console.log(`Success!`);
