@@ -4,6 +4,7 @@ const ramtid = 259943329028898816;
 const jclid = 214869811547734016;
 const logchannelramt = "modchat";
 const logchanneljcl = "log";
+const adchannelramt = "ads";
 const token = process.env.TOKEN;
 console.log('Starting Up.');
 console.log(process.env.TOKEN);
@@ -68,5 +69,78 @@ client.on('messageDelete', message => {
         }
       }
     });
+});
+client.on('message', message => {
+  if (message.guild.id == ramtid) {
+    var mentionedrole = FALSE;
+    var rolelist = message.guild.roles.array();
+    for(int i = 0; i < rolelist.length; i++) {
+      if (message.ismentioned(rolelist[i])) {
+        mentionedrole = TRUE;
+      }
+    }
+      if (mentionedrole = TRUE) {
+        if (message.member.permissions.has("MENTION_EVERYONE")) {
+          var logchannel = logchannelramt;
+          var channelobj = message.guild.channels.find("name", logchannel);
+          var desc = "Message sent by <@" + message.member.id +"> mentioned a role in <#" + message.channel.id + "> Not deleted as member can mention everyone.";
+          channelobj.send({embed: {
+            color: 16711680,
+            title: "Message Sent That has Role.",
+            description: desc,
+            fields: [{
+                name: "Original Message:",
+                value: message.content
+              },
+            ],
+            timestamp: new Date(),
+            footer: {
+              text: "User id of original message sender: " + message.member.id
+            }
+        } else {
+          var logchannel = logchannelramt;
+          var channelobj = message.guild.channels.find("name", logchannel);
+          var desc = "Message sent by <@" + message.member.id +"> mentioned a role in <#" + message.channel.id + "> Message Deleted.";
+          channelobj.send({embed: {
+            color: 16711680,
+            title: "Message Sent That has Role.",
+            description: desc,
+            fields: [{
+                name: "Original Message:",
+                value: message.content
+              },
+            ],
+            timestamp: new Date(),
+            footer: {
+              text: "User id of original message sender: " + message.member.id
+            }
+          message.delete();
+        }
+     }  
+  }
+  if (mentionedrole = FALSE) {
+    var regex = /discord\.gg\/[a-z]{6,7}/i;
+    if (regex.test(message.content)) {
+      var logchannel = logchannelramt;
+      var channelobj = message.guild.channels.find("name", logchannel);
+      if (message.channel.name != adchannelramt) {
+        var desc = "Message sent by <@" + message.member.id +"> advertized in <#" + message.channel.id + "> Message Deleted.";
+          channelobj.send({embed: {
+            color: 16711680,
+            title: "Message Sent That Advertized.",
+            description: desc,
+            fields: [{
+                name: "Original Message:",
+                value: message.content
+              },
+            ],
+            timestamp: new Date(),
+            footer: {
+              text: "User id of original message sender: " + message.member.id
+            }
+          message.delete();
+      }
+    }
+  }
 });
 client.login(token);
