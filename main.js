@@ -4,7 +4,7 @@ const ramtid = 259943329028898816;
 const jclid = 214869811547734016;
 const logchannelramt = "modchat";
 const logchanneljcl = "log";
-const token = 'NDI2MzEyODM1NzQ5MTE3OTcy.DZUKUA.U-aBxhurxk5iTyOI6ic8zcxUO-Y';
+const token = process.env.TOKEN;
 client.on('ready', () => {
   console.log(`Success!`);
 });
