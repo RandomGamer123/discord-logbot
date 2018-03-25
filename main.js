@@ -97,7 +97,7 @@ client.on('message', message => {
             footer: {
               text: "User id of original message sender: " + message.member.id
             }
-          }}
+          }})
         } else {
           var logchannel = logchannelramt;
           var channelobj = message.guild.channels.find("name", logchannel);
@@ -115,7 +115,7 @@ client.on('message', message => {
             footer: {
               text: "User id of original message sender: " + message.member.id
             }
-          }}
+          }})
           message.delete();
         }
      }  
@@ -140,7 +140,7 @@ client.on('message', message => {
             footer: {
               text: "User id of original message sender: " + message.member.id
             }
-          }}
+          }})
           message.delete();
       }
     }
