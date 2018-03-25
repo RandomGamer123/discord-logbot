@@ -5,6 +5,7 @@ const jclid = 214869811547734016;
 const logchannelramt = "modchat";
 const logchanneljcl = "log";
 const token = process.env.TOKEN;
+console.log(token);
 client.on('ready', () => {
   console.log(`Success!`);
 });
