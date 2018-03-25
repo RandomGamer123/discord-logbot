@@ -75,7 +75,7 @@ client.on('message', message => {
     var mentionedrole = false;
     var rolelist = message.guild.roles.array();
     for(i = 0; i < rolelist.length; i++) {
-      if (message.ismentioned(rolelist[i])) {
+      if (message.isMentioned(rolelist[i])) {
         mentionedrole = true;
       }
     }
