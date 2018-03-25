@@ -72,14 +72,14 @@ client.on('messageDelete', message => {
 });
 client.on('message', message => {
   if (message.guild.id == ramtid) {
-    var mentionedrole = FALSE;
+    var mentionedrole = false;
     var rolelist = message.guild.roles.array();
     for(i = 0; i < rolelist.length; i++) {
       if (message.ismentioned(rolelist[i])) {
-        mentionedrole = TRUE;
+        mentionedrole = true;
       }
     }
-      if (mentionedrole = TRUE) {
+      if (mentionedrole = true) {
         if (message.member.permissions.has("MENTION_EVERYONE")) {
           var logchannel = logchannelramt;
           var channelobj = message.guild.channels.find("name", logchannel);
