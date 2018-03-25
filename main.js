@@ -82,6 +82,7 @@ client.on('message', message => {
       if (mentionedrole = true) {
         if (message.member.permissions.has("MENTION_EVERYONE")) {
           var logchannel = logchannelramt;
+          console.log('testlog1');
           var channelobj = message.guild.channels.find("name", logchannel);
           var desc = "Message sent by <@" + message.member.id +"> mentioned a role in <#" + message.channel.id + "> Not deleted as member can mention everyone.";
           channelobj.send({embed: {
@@ -101,6 +102,7 @@ client.on('message', message => {
         } else {
           var logchannel = logchannelramt;
           var channelobj = message.guild.channels.find("name", logchannel);
+          console.log('testlog2');
           var desc = "Message sent by <@" + message.member.id +"> mentioned a role in <#" + message.channel.id + "> Message Deleted.";
           channelobj.send({embed: {
             color: 16711680,
@@ -126,6 +128,7 @@ client.on('message', message => {
       var logchannel = logchannelramt;
       var channelobj = message.guild.channels.find("name", logchannel);
       if (message.channel.name != adchannelramt) {
+        console.log('testlog3');
         var desc = "Message sent by <@" + message.member.id +"> advertized in <#" + message.channel.id + "> Message Deleted.";
           channelobj.send({embed: {
             color: 16711680,
