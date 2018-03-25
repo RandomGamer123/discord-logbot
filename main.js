@@ -123,7 +123,7 @@ client.on('message', message => {
      }  
   }
   if (mentionedrole = false) {
-    var regex = /discord\.gg\/[a-z]{6,7}/i;
+    var regex = /discord.gg\/[A-z]{6,7}/
     if (regex.test(message.content)) {
       var logchannel = logchannelramt;
       var channelobj = message.guild.channels.find("name", logchannel);
