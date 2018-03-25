@@ -74,7 +74,7 @@ client.on('message', message => {
   if (message.guild.id == ramtid) {
     var mentionedrole = FALSE;
     var rolelist = message.guild.roles.array();
-    for(int i = 0; i < rolelist.length; i++) {
+    for(i = 0; i < rolelist.length; i++) {
       if (message.ismentioned(rolelist[i])) {
         mentionedrole = TRUE;
       }
