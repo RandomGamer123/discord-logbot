@@ -100,25 +100,28 @@ client.on('message', message => {
             }
           }})
         } else {
+          var memberid = message.member.id;
+          var channelid = message.channel.id;
+          var messagecontent = message.content;
           var logchannel = logchannelramt;
           var channelobj = message.guild.channels.find("name", logchannel);
+          message.delete()
           console.log('testlog2');
-          var desc = "Message sent by <@" + message.member.id +"> mentioned a role in <#" + message.channel.id + "> Message Deleted.";
+          var desc = "Message sent by <@" + memberid +"> mentioned a role in <#" + channelid + "> Message Deleted.";
           channelobj.send({embed: {
             color: 16711680,
             title: "Message Sent That has Role.",
             description: desc,
             fields: [{
                 name: "Original Message:",
-                value: message.content
+                value: messagecontent
               },
             ],
             timestamp: new Date(),
             footer: {
-              text: "User id of original message sender: " + message.member.id
+              text: "User id of original message sender: " + memberid
             }
           }})
-          message.delete();
         }
      }  
   }
@@ -129,22 +132,25 @@ client.on('message', message => {
       var channelobj = message.guild.channels.find("name", logchannel);
       if (message.channel.name != adchannelramt) {
         console.log('testlog3');
-        var desc = "Message sent by <@" + message.member.id +"> advertized in <#" + message.channel.id + "> Message Deleted.";
+        var memberid = message.member.id;
+        var channelid = message.channel.id;
+        var messagecontent = message.content;
+        message.delete();
+        var desc = "Message sent by <@" + memberid +"> advertized in <#" + channelid + "> Message Deleted.";
           channelobj.send({embed: {
             color: 16711680,
             title: "Message Sent That Advertized.",
             description: desc,
             fields: [{
                 name: "Original Message:",
-                value: message.content
+                value: messagecontent
               },
             ],
             timestamp: new Date(),
             footer: {
-              text: "User id of original message sender: " + message.member.id
+              text: "User id of original message sender: " + memberid
             }
           }})
-          message.delete();
       }
     }
   }
