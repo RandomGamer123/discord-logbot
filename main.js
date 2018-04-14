@@ -72,61 +72,7 @@ client.on('messageDelete', message => {
 });
 client.on('message', message => {
   if (message.guild.id == ramtid) {
-    var mentionedrole = false;
-    var rolelist = message.guild.roles.array();
-    for(i = 0; i < rolelist.length; i++) {
-      if (message.isMentioned(rolelist[i])) {
-        mentionedrole = true;
-      }
-    }
-      if (mentionedrole = true) {
-        if (message.member.permissions.has("MENTION_EVERYONE")) {
-          var logchannel = logchannelramt;
-          console.log('testlog1');
-          var channelobj = message.guild.channels.find("name", logchannel);
-          var desc = "Message sent by <@" + message.member.id +"> mentioned a role in <#" + message.channel.id + "> Not deleted as member can mention everyone.";
-          channelobj.send({embed: {
-            color: 16711680,
-            title: "Message Sent That has Role.",
-            description: desc,
-            fields: [{
-                name: "Original Message:",
-                value: message.content
-              },
-            ],
-            timestamp: new Date(),
-            footer: {
-              text: "User id of original message sender: " + message.member.id
-            }
-          }})
-        } else {
-          var memberid = message.member.id;
-          var channelid = message.channel.id;
-          var messagecontent = message.content;
-          var logchannel = logchannelramt;
-          var channelobj = message.guild.channels.find("name", logchannel);
-          message.delete()
-          console.log('testlog2');
-          var desc = "Message sent by <@" + memberid +"> mentioned a role in <#" + channelid + "> Message Deleted.";
-          channelobj.send({embed: {
-            color: 16711680,
-            title: "Message Sent That has Role.",
-            description: desc,
-            fields: [{
-                name: "Original Message:",
-                value: messagecontent
-              },
-            ],
-            timestamp: new Date(),
-            footer: {
-              text: "User id of original message sender: " + memberid
-            }
-          }})
-        }
-     }  
-  }
-  if (mentionedrole = false) {
-    var regex = /discord.gg\/[A-z]{6,7}/
+    var regex = /discord\.gg\/[A-z]{6,7}/;
     if (regex.test(message.content)) {
       var logchannel = logchannelramt;
       var channelobj = message.guild.channels.find("name", logchannel);
