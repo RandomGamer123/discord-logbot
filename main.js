@@ -73,7 +73,7 @@ client.on('messageDelete', message => {
 client.on('message', message => {
   if (message.guild.id == ramtid) {
     var regex = /discord\.gg\/[A-z]{6,7}/;
-    var msgcontent = message.content
+    var msgcontent = message.content.toLowerCase();
     if (regex.test(msgcontent)) {
       var logchannel = logchannelramt;
       var channelobj = message.guild.channels.find("name", logchannel);
