@@ -107,7 +107,7 @@ client.on('message', message => {
         }
       }
     }
-  if (message.startsWith('/randomvote') {
+  if (message.startsWith('/randomvote')) {
     var msgcontent = message.content;
     var channelobj = message.channel;
     var argarray = msgcontent.split(" ");
