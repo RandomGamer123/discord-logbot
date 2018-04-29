@@ -80,7 +80,7 @@ client.on('message', message => {
       var excepted = 0;
       if (message.channel.name != adchannelramt) {
         if (msgcontent.startsWith('/advertexcept')) {
-            if (message.member.hasPermission('MANAGE_CHANNELS',false,true,true) {
+            if (message.member.hasPermission('MANAGE_CHANNELS',false,true,true)) {
               excepted = 1;
             }
         }
