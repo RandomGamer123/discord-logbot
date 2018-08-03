@@ -74,7 +74,7 @@ client.on('message', msg => {
   if (msg.guild.id == ramtid) {
     if (msg.member.user.bot == false) {
       if (msg.content == "msglogbot:ping") {
-        msg.reply('Pong!');
+        msg.channel.send('Pong!');
       }
     }
   }
