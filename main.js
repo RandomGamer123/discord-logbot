@@ -73,7 +73,9 @@ client.on('messageDelete', message => {
 client.on('message', msg => {
   if (msg.guild.id == ramtid) {
     if (msg.member.user.bot == false) {
-      msg.reply('Pong!');
+      if (msg.content == "msglogbot:ping") {
+        msg.reply('Pong!');
+      }
     }
   }
 });
