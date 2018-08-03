@@ -71,7 +71,7 @@ client.on('messageDelete', message => {
     });
 });
 client.on('message', msg => {
-  if (msg.content === 'ping') {
+  if (msg.guild.id == ramtid) {
     msg.reply('Pong!');
   }
 });
