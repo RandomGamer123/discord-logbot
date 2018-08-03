@@ -72,7 +72,9 @@ client.on('messageDelete', message => {
 });
 client.on('message', msg => {
   if (msg.guild.id == ramtid) {
-    msg.reply('Pong!');
+    if (msg.member.id != client.user.id) {
+      msg.reply('Pong!');
+    }
   }
 });
 client.login(token);
