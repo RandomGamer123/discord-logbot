@@ -80,7 +80,7 @@ client.on('message', msg => {
           if (msg.guild.available) {
             var teamroles = [];
             var serverroles = msg.guild.roles.array();
-            for (var i = 0; i < a.length; i++) {
+            for (var i = 0; i < serverroles.length; i++) {
               if (serverroles[i].name.startsWith("#Team")) {
                 teamroles[teamroles.length] = serverroles[i];
               }
