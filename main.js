@@ -82,10 +82,10 @@ client.on('message', msg => {
             var serverroles = msg.guild.roles.array();
             for (var i = 0; i < serverroles.length; i++) {
               if (serverroles[i].name.startsWith("#Team")) {
-                teamroles[teamroles.length] = serverroles[i];
+                teamroles[teamroles.length] = serverroles[i].name;
               }
             }
-            msg.reply(teamroles);
+            msg.channel.send(teamroles);
           }
       }
     }
