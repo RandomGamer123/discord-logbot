@@ -76,7 +76,7 @@ client.on('message', msg => {
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
       }
-      if (msg.content.startsWith("msglogbot:teams list") {
+      if (msg.content == "msglogbot:teams list") {
           if (msg.guild.available) {
             var teamroles = [];
             var serverroles = msg.guild.roles.array();
