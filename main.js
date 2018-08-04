@@ -76,6 +76,18 @@ client.on('message', msg => {
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
       }
+      if (msg.content.startsWith("msglogbot:teams list") {
+          if (msg.guild.available) {
+            var teamroles = [];
+            var serverroles = msg.guild.roles.array();
+            for (var i = 0; i < a.length; i++) {
+              if (serverroles[i].name.startsWith("#Team")) {
+                teamroles[teamroles.length] = serverroles[i];
+              }
+            }
+            msg.reply(teamroles);
+          }
+      }
     }
   }
 });
