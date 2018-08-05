@@ -124,7 +124,10 @@ client.on('message', msg => {
     msg.channel.send("**Misc Module:**\nThis module has miscellaneous commands:**\n`msglogbot:misc say [TEXT] - Sends a message containing the text in the argument of the command. (Cannot be empty)`")
   }
   if (msg.content.startsWith("msglogbot:misc say") {
-    
+    var text = msg.content.slice(19);
+    if (text != "") {
+      msg.channel.send(text);
+    }
   }
 });
 client.login(token);
