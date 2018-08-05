@@ -120,6 +120,11 @@ client.on('message', msg => {
   if (msg.content == "msglogbot:help help") {
     msg.channel.send("**Help Module:**\nThis module provides help info about other modules.\n**Commands:**\n`msglogbot:help - The basic help command, displays all modules.`\n`msglogbot:help [module] - Gives module specific help info`")
   }
+  if (msg.content == "msglogbot:help misc") {
+    msg.channel.send("**Misc Module:**\nThis module has miscellaneous commands:**\n`msglogbot:misc say [TEXT] - Sends a message containing the text in the argument of the command. (Cannot be empty)`")
+  }
+  if (msg.content.startsWith("msglogbot:misc say") {
+    
   }
 });
 client.login(token);
