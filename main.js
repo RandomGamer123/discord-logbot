@@ -105,7 +105,6 @@ client.on('message', msg => {
             console.log(teamnames)
             if (teamnames.includes(getteam)) {
                 if (msg.member) {
-                  console.log(getteam)
                   msg.member.addRole(teamroles[teamnames.indexOf(getteam)]);
                   msg.channel.send("Role given.")
                 }
@@ -115,6 +114,9 @@ client.on('message', msg => {
           }
       }
     }
+  }
+  if (msg.content == "msglogbot:help") {
+    msg.channel.send("**Modules:**\n`(msg) Message Edit and Delete Logging`\n`(team) Team Flairs`\n`(help) Help Module`\n`(misc) Misc Commands`\n Do :msglogbot help [module] for help about commands and functions of that module.\n *-Made by RandomGamer123#5222 for use in Random Random's Mini-twow and JCL Kaytwo's minitwow.*")
   }
 });
 client.login(token);
