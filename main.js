@@ -105,7 +105,8 @@ client.on('message', msg => {
             console.log(teamnames)
             if (teamnames.includes(getteam)) {
                 if (msg.member) {
-                  msg.member.addRole(serverroles[teamnames.indexOf(getteam)]);
+                  console.log(getteam)
+                  msg.member.addRole(teamroles[teamnames.indexOf(getteam)]);
                   msg.channel.send("Role given.")
                 }
             } else {
