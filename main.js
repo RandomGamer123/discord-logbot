@@ -12,7 +12,7 @@ console.log(token);
 client.on('ready', () => {
   console.log(`Success!`);
 });
-
+client.user.setPresence({ game: { name: 'msglogbot:help | Made by RandomGamer123#5222' }})
 client.on('messageDelete', message => {
     var logchannel = 0;
     if (message.guild.id == ramtid) {
