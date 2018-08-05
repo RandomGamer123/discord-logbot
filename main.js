@@ -88,6 +88,30 @@ client.on('message', msg => {
             msg.channel.send(teamroles);
           }
       }
+      if (msg.content.startsWith("msglogbot:teams get")) {
+          if (msg.guild.available) {
+            var teamroles = [];
+            var serverroles = msg.guild.roles.array();
+            for (var i = 0; i < serverroles.length; i++) {
+              if (serverroles[i].name.startsWith("#Team")) {
+                teamroles[teamroles.length] = serverroles[i];
+              }
+            }
+            var getteam = msg.content.slice(20);
+            var teamnames = [];
+            for (var i = 0; i < teamroles.length; i++) {
+              teamnames[teamnames.length] = serverroles[i].name.slice(5);
+            }
+            if (teamnames.includes(getteam)) {
+                if (message.member) {
+                  message.member.addRole(serverroles[teamnames.indexOf(getteam)]);
+                  msg.channel.send("Role given.")
+                }
+            } else {
+              msg.channel.send("Team name not recongized. Use msglogbot:teams list to list all teams.")
+            }
+          }
+      }
     }
   }
 });
