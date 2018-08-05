@@ -11,7 +11,7 @@ console.log(process.env.TOKEN);
 console.log(token);
 client.on('ready', () => {
   console.log(`Success!`);
-  client.user.setGame('msglogbot:help | Made by RandomGamer123#5222');
+  client.user.setActivity('msglogbot:help | Made by RandomGamer123#5222');
 });
 client.on('messageDelete', message => {
     var logchannel = 0;
