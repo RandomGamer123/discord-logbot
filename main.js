@@ -102,6 +102,7 @@ client.on('message', msg => {
             for (var i = 0; i < teamroles.length; i++) {
               teamnames[teamnames.length] = serverroles[i].name.slice(5);
             }
+            console.log(teamnames)
             if (teamnames.includes(getteam)) {
                 if (message.member) {
                   message.member.addRole(serverroles[teamnames.indexOf(getteam)]);
