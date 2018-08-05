@@ -100,7 +100,7 @@ client.on('message', msg => {
             var getteam = msg.content.slice(20);
             var teamnames = [];
             for (var i = 0; i < teamroles.length; i++) {
-              teamnames[teamnames.length] = serverroles[i].name.slice(5);
+              teamnames[teamnames.length] = teamroles[i].name.slice(5);
             }
             console.log(teamnames)
             if (teamnames.includes(getteam)) {
