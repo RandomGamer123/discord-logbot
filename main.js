@@ -71,8 +71,8 @@ client.on('messageDelete', message => {
     });
 });
 client.on('message', msg => {
-  if (msg.guild.id == ramtid) {
-    if (msg.member.user.bot == false) {
+  if (msg.author.bot == false) {
+    if (msg.guild.id == ramtid) {
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
       }
@@ -114,12 +114,12 @@ client.on('message', msg => {
           }
       }
     }
-  }
   if (msg.content == "msglogbot:help") {
     msg.channel.send("**Modules:**\n`(msg) Message Edit and Delete Logging`\n`(team) Team Flairs`\n`(help) Help Module`\n`(misc) Misc Commands`\n Do :msglogbot help [module] for help about commands and functions of that module.\n *-Made by RandomGamer123#5222 for use in Random Random's Mini-twow and JCL Kaytwo's minitwow.*")
   }
   if (msg.content == "msglogbot:help help") {
     msg.channel.send("**Help Module:**\nThis module provides help info about other modules.\n**Commands:**\n`msglogbot:help - The basic help command, displays all modules.`\n`msglogbot:help [module] - Gives module specific help info`")
+  }
   }
 });
 client.login(token);
