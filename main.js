@@ -129,5 +129,6 @@ client.on('message', msg => {
       msg.channel.send(text);
     }
   }
+  }
 });
 client.login(token);
