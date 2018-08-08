@@ -2,6 +2,11 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const ramtid = 259943329028898816;
 const jclid = 214869811547734016;
+const ramtpunished = 318299184757211136;
+const randomid = 156390113654341632;
+const randomaltid = 318305360823844865;
+const moderator = 318298988124307456;
+const trialmod = 318299840431783938;
 const logchannelramt = "modchat";
 const logchanneljcl = "log";
 const adchannelramt = "ads";
@@ -73,6 +78,30 @@ client.on('messageDelete', message => {
 client.on('message', msg => {
   if (msg.author.bot == false) {
     if (msg.guild.id == ramtid) {
+      if (msg.member) {
+        var rolearray = msg.member.roles.array();
+        if (msg.member.id == randomid || msg.member.id == randomaltid || rolearray.includes(moderator) || rolearray.includes(trialmod)) {
+          if (msg.content.startsWith("msglogbot:moderation punish")) {
+            var target = msg.content.slice(28);
+            if (msg.guild) {
+              if (msg.guild.available) {
+                if (msg.guild.member(target)) {
+                  var targetobject = msg.guild.member(target)
+                  if (targetobject.id == ramdomid || msg.member.id == randomaltid) {
+                    msg.channel.send('You cannot punish this person.');                    
+                  } else {
+                    targetobject.removeRoles(targetobject.roles());
+                    targetobject.addRole(ramtpunished);
+                    msg.channel.send('User Punished.');
+                  }
+                }
+              }
+            }
+          }
+        } else {
+          msg.channel.send('You do not have permission to use this command.');
+        }
+      }
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
       }
