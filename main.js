@@ -89,7 +89,6 @@ client.on('message', msg => {
                   var targetobject = msg.guild.member(target);
                   var targetroles = targetobject.roles;
                   targetroles.delete(ramtpunished);
-                  console.log(targetroles);
                   if (targetobject.id == randomid || targetobject.id == randomaltid) {
                     msg.channel.send('You cannot punish this person.');                    
                   } else {
