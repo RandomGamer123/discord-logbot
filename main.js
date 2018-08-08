@@ -90,7 +90,7 @@ client.on('message', msg => {
                   if (targetobject.id == randomid || targetobject.id == randomaltid) {
                     msg.channel.send('You cannot punish this person.');                    
                   } else {
-                    targetobject.removeRoles(targetobject.roles());
+                    targetobject.removeRoles(targetobject.roles);
                     targetobject.addRole(ramtpunished);
                     msg.channel.send('User Punished.');
                   }
