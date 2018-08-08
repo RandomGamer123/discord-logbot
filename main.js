@@ -86,11 +86,12 @@ client.on('message', msg => {
             if (msg.guild) {
               if (msg.guild.available) {
                 if (msg.guild.member(target)) {
-                  var targetobject = msg.guild.member(target)
+                  var targetobject = msg.guild.member(target);
+                  var targetroles = targetobject.roles;
                   if (targetobject.id == randomid || targetobject.id == randomaltid) {
                     msg.channel.send('You cannot punish this person.');                    
                   } else {
-                    targetobject.removeRoles(targetobject.roles);
+                    targetobject.removeRoles(targetroles);
                     targetobject.addRole(ramtpunished);
                     msg.channel.send('User Punished.');
                   }
