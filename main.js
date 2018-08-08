@@ -99,9 +99,11 @@ client.on('message', msg => {
                 }
               }
             }
+          }
         } else {
-          msg.channel.send('You do not have permission to use this command.');
-        }
+          if (msg.content.startsWith("msglogbot:moderation punish")) {
+            msg.channel.send('You do not have permission to use this command.');
+          }
         }
       }
       if (msg.content == "msglogbot:ping") {
