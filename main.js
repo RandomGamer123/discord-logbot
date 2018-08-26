@@ -153,8 +153,14 @@ client.on('message', msg => {
   if (msg.content == "msglogbot:help help") {
     msg.channel.send("**Help Module:**\nThis module provides help info about other modules.\n**Commands:**\n`msglogbot:help - The basic help command, displays all modules.`\n`msglogbot:help [module] - Gives module specific help info`")
   }
+  if (msg.content == "msglogbot:help msg") {
+    msg.channel.send("**Message Edit and Delete Logging Module:**\nThis module logs the editing and deleting of messages, and is the only module in JCL's minitwow. Although, the help module this command belongs to isn't enabled in JCL's minitwow,so **if you see this message in his minitwow, report it ASAP.** \n **Commands:**\n`None`")
+  }
   if (msg.content == "msglogbot:help misc") {
-    msg.channel.send("**Misc Module:**\nThis module has miscellaneous commands:\n`msglogbot:misc say [TEXT] - Sends a message containing the text in the argument of the command. (Cannot be empty)`")
+    msg.channel.send("**Misc Module:**\nThis module has miscellaneous commands.\n`msglogbot:misc say [TEXT] - Sends a message containing the text in the argument of the command. (Cannot be empty)`")
+  }
+  if (msg.content == "msglogbot:help team") {
+    msg.channel.send("**Teams Module:**\nThis module has commands related to team flairs.\n**Commands:**\n`msglogbot:teams list - Lists all teams in the server. (Defined as roles beginning with '#Team'.)`\n`msglogbot:teams get [team name] - Gives you the role corresponding to the team name you typed in. (You don't need to type #Team, just the name of the contestant.)`")
   }
   if (msg.content.startsWith("msglogbot:misc say")) {
     var text = msg.content.slice(19);
