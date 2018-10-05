@@ -7,6 +7,8 @@ const randomid = 156390113654341632;
 const randomaltid = 318305360823844865;
 const moderator = 318298988124307456;
 const trialmod = 318299840431783938;
+const ramtsignupchannel = "s7microsignups";
+const signuprole = 343678536562900992;
 const logchannelramt = "modchat";
 const logchanneljcl = "log";
 const adchannelramt = "ads";
@@ -79,6 +81,11 @@ client.on('message', msg => {
   if (msg.author.bot == false) {
     if (msg.guild.id == ramtid) {
       if (msg.member) {
+        if (msg.content == "msglogbot:signup") {
+          if (msg.channel.name == ramtsignupchannel) {
+            msg.member.addRole(signuprole,"Signed up!")
+          }
+        }
         var rolearray = msg.member.roles.array();
         if (msg.member.id == randomid || msg.member.id == randomaltid || rolearray.includes(moderator) || rolearray.includes(trialmod)) {
           if (msg.content.startsWith("msglogbot:moderation punish")) {
@@ -148,7 +155,7 @@ client.on('message', msg => {
       }
     }
   if (msg.content == "msglogbot:help") {
-    msg.channel.send("**Modules:**\n`(msg) Message Edit and Delete Logging`\n`(team) Team Flairs`\n`(help) Help Module`\n`(misc) Misc Commands`\n Do msglogbot:help [module] for help about commands and functions of that module.\n Github: <https://github.com/RandomGamer123/discord-logbot>\n *-Made by RandomGamer123#5222 for use in Random Random's Mini-twow and JCL Kaytwo's minitwow.*")
+    msg.channel.send("**Modules:**\n`(msg) Message Edit and Delete Logging`\n`(team) Team Flairs`\n`(signup) Signup Module`\n`(help) Help Module`\n`(misc) Misc Commands`\n Do msglogbot:help [module] for help about commands and functions of that module.\n Github: <https://github.com/RandomGamer123/discord-logbot>\n *-Made by RandomGamer123#5222 for use in Random Random's Mini-twow and JCL Kaytwo's minitwow.*")
   }
   if (msg.content == "msglogbot:help help") {
     msg.channel.send("**Help Module:**\nThis module provides help info about other modules.\n**Commands:**\n`msglogbot:help - The basic help command, displays all modules.`\n`msglogbot:help [module] - Gives module specific help info`")
@@ -161,6 +168,9 @@ client.on('message', msg => {
   }
   if (msg.content == "msglogbot:help team") {
     msg.channel.send("**Teams Module:**\nThis module has commands related to team flairs.\n**Commands:**\n`msglogbot:teams list - Lists all teams in the server. (Defined as roles beginning with '#Team'.)`\n`msglogbot:teams get [team name] - Gives you the role corresponding to the team name you typed in. (You don't need to type #Team, just the name of the contestant.)`")
+  }
+  if (msg.content == "msglogbot:help signup") {
+    msg.channel.send("**Signup Module:**\nThis module has commands related to signing up.\n**Commands:**\n`msglogbot:signup - Signs you up for the minitwow that is currently in signups. (Can only be used in 1 channel)`")
   }
   if (msg.content.startsWith("msglogbot:misc say")) {
     var text = msg.content.slice(19);
