@@ -83,7 +83,8 @@ client.on('message', msg => {
       if (msg.member) {
         if (msg.content == "msglogbot:signup") {
           if (msg.channel.name == ramtsignupchannel) {
-            msg.member.addRole(signuprole,"Signed up!")
+            let roleobj = message.guild.roles.get(signuprole);
+            msg.member.addRole(roleobj,"Signed up!")
           }
         }
         var rolearray = msg.member.roles.array();
