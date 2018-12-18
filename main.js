@@ -183,7 +183,7 @@ client.on('message', msg => {
   }
   if (msg.content == "msglogbot:misc fym") {	
      var requester = msg.author.username
-     msg.channel.send('**FYM!**\nRequested by: '.concat(requester));	
+     msg.channel.send('fuck your mother\nRequested by: '.concat(requester));	
   }
   }
 });
