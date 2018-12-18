@@ -180,8 +180,8 @@ client.on('message', msg => {
       msg.channel.send("Argument cannot be empty");
     }
   }
-  if (msg.content == "msglogbot:misc fym" ) 
-        msg.channel.send(concat('**FYM!**\nRequested by: ', msg.author.username))
+  if (msg.content == "msglogbot:misc fym") {
+    msg.channel.send(concat('**FYM!**\nRequested by: ', msg.author.username));
   }
   }
 });
