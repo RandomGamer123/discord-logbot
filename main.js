@@ -113,6 +113,7 @@ client.on('message', msg => {
             msg.channel.send('You do not have permission to use this command.');
           }
         }
+      }
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
       }
@@ -183,7 +184,6 @@ client.on('message', msg => {
   if (msg.content == "msglogbot:misc fym") {	
      var requester = msg.author.username
      msg.channel.send('**FYM!**\nRequested by: '.concat(requester));	
-  }
   }
   }
 });
