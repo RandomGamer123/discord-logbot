@@ -113,6 +113,8 @@ client.on('message', msg => {
             msg.channel.send('You do not have permission to use this command.');
           }
         }
+      if (msg.content == "msglogbot:misc fym" ) 
+        msg.channel.send(concat('**FYM!**\nRequested by: ', msg.author.username))
       }
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
