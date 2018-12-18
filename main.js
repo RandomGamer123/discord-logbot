@@ -181,7 +181,8 @@ client.on('message', msg => {
     }
   }
   if (msg.content == "msglogbot:misc fym") {	
-     msg.channel.send('**FYM!**\nRequested by: '.concat(msg.author.username));	
+     var requester = msg.author.username
+     msg.channel.send('**FYM!**\nRequested by: '.concat(requester));	
   }
   }
   }
