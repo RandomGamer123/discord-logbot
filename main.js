@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+var Jimp = require('jimp');
 const client = new Discord.Client();
 const ramtid = 259943329028898816;
 const jclid = 214869811547734016;
@@ -165,13 +166,35 @@ client.on('message', msg => {
     msg.channel.send("**Message Edit and Delete Logging Module:**\nThis module logs the editing and deleting of messages, and is the only module in JCL's minitwow. Although, the help module this command belongs to isn't enabled in JCL's minitwow,so **if you see this message in his minitwow, report it ASAP.** \n **Commands:**\n`None`")
   }
   if (msg.content == "msglogbot:help misc") {
-    msg.channel.send("**Misc Module:**\nThis module has miscellaneous commands.\n`msglogbot:misc say [TEXT] - Sends a message containing the text in the argument of the command. (Cannot be empty)`")
+    msg.channel.send("**Misc Module:**\nThis module has miscellaneous commands.\n`msglogbot:misc say [TEXT] - Sends a message containing the text in the argument of the command. (Cannot be empty)`\n`msglogbot:misc fym - Sends a message in the format of 'fuck your mother -Requested by [YOUR NAME]'`\n`msglogbot:misc glitch [MAXCHANGE] [LINK TO IMG] - Changes each channel of each pixel of the image by a random value between 0 and MAXCHANGE (No spaces allowed in [LINK TO IMG])`")
   }
   if (msg.content == "msglogbot:help team") {
     msg.channel.send("**Teams Module:**\nThis module has commands related to team flairs.\n**Commands:**\n`msglogbot:teams list - Lists all teams in the server. (Defined as roles beginning with '#Team'.)`\n`msglogbot:teams get [team name] - Gives you the role corresponding to the team name you typed in. (You don't need to type #Team, just the name of the contestant.)`")
   }
   if (msg.content == "msglogbot:help signup") {
     msg.channel.send("**Signup Module:**\nThis module has commands related to signing up.\n**Commands:**\n`msglogbot:signup - Signs you up for the minitwow that is currently in signups. (Can only be used in 1 channel)`")
+  }
+  if (msg.content.startsWith("msglogbot:misc glitch")) {
+    var text = msg.content.slice(22);
+    var args = text.split(" ");
+    var maxchange = args[0];
+    var link = args[1];
+    Jimp.read(link)
+      .then(imgfile => {
+          imgfile.scan(0, 0, imgfile.bitmap.width, imgfile.bitmap.height, function(x, y, idx) {
+                  this.bitmap.data[idx] = Math.min(255,Math.max(0,this.bitmap.data[idx] + Math.round((Math.random()-0.5)*2*maxchange)));
+                  this.bitmap.data[idx+1] = Math.min(255,Math.max(0,this.bitmap.data[idx+1] + Math.round((Math.random()-0.5)*2*maxchange)));
+                  this.bitmap.data[idx+2] = Math.min(255,Math.max(0,this.bitmap.data[idx+2] + Math.round((Math.random()-0.5)*2*maxchange)));
+              });
+          imgfile.getBuffer(imgfile.getMIME(),function(err,bufferimg) {
+            var discattachment = new Discord.Attachment(bufferimg);
+            msg.channel.send("Your 'glitched' image:", {files: discattachment});
+          });
+      })
+      .catch(err => {
+          console.error(err);
+          msg.channel.send("**ERROR**\n" + err);
+      });
   }
   if (msg.content.startsWith("msglogbot:misc say")) {
     var text = msg.content.slice(19);
