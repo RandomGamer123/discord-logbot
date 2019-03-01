@@ -188,9 +188,7 @@ client.on('message', msg => {
               });
           imgfile.getBuffer(imgfile.getMIME(), function(err, bufferimg) {
             var discattachment = new Discord.Attachment(bufferimg);
-            msg.channel.send("Your 'glitched' image:", {files: [discattachment]});
-              .then()
-              .catch(console.error);
+            msg.channel.send("Your 'glitched' image:", discattachment);
           });
       })
       .catch(err => {
