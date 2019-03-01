@@ -191,6 +191,8 @@ client.on('message', msg => {
             msg.channel.send("Your 'glitched' image:", {
               files: [discattachment]
             });
+              .then()
+              .catch(console.error);
           });
       })
       .catch(err => {
