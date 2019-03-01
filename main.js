@@ -186,7 +186,7 @@ client.on('message', msg => {
                   this.bitmap.data[idx+1] = Math.min(255,Math.max(0,this.bitmap.data[idx+1] + Math.round((Math.random()-0.5)*2*maxchange)));
                   this.bitmap.data[idx+2] = Math.min(255,Math.max(0,this.bitmap.data[idx+2] + Math.round((Math.random()-0.5)*2*maxchange)));
               });
-          imgfile.getBuffer(imgfile.getMIME(),function(err,bufferimg) {
+          imgfile.getBuffer(imgfile.getMIME(), function(err, bufferimg) {
             var discattachment = new Discord.Attachment(bufferimg);
             msg.channel.send("Your 'glitched' image:", {files: discattachment});
           });
