@@ -23,6 +23,14 @@ client.on('ready', () => {
   client.user.setActivity('msglogbot:help | Made by RandomGamer123#5222');
 });
 client.on('messageReactionAdd', (reaction, user) => {
+  var logchannel = 0;
+  if (message.guild.id == ramtid) {
+    logchannel = logchannelramt;
+  } else if (message.guild.id == jclid) {
+    logchannel = logchanneljcl;
+  } else {
+      message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
+  }
   if (reaction.emoji.name !== '⭐') return;
   if (reaction.count < starpinreq) return;
   var channelobj = reaction.message.guild.channels.find("name", logchannel);
@@ -43,6 +51,14 @@ client.on('messageReactionAdd', (reaction, user) => {
   }});
 });
 client.on("presenceUpdate", (oldMember, newMember) => {
+  var logchannel = 0;
+  if (message.guild.id == ramtid) {
+    logchannel = logchannelramt;
+  } else if (message.guild.id == jclid) {
+    logchannel = logchanneljcl;
+  } else {
+      message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
+  }
   let username = newMember.user.username;
   let id = newMember.id;
   let oldstatus = oldMember.presence.status;
