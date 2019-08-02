@@ -14,6 +14,7 @@ const logchannelramt = "modchat";
 const logchanneljcl = "log";
 const adchannelramt = "ads";
 const token = process.env.TOKEN;
+const starpinreq = 3;
 console.log('Starting Up.');
 console.log(process.env.TOKEN);
 console.log(token);
@@ -21,6 +22,34 @@ client.on('ready', () => {
   console.log(`Success!`);
   client.user.setActivity('msglogbot:help | Made by RandomGamer123#5222');
 });
+client.on('messageReactionAdd', (reaction, user) => {
+  if (reaction.emoji.name !== '⭐') return;
+  if (reaction.count < starpinreq) return;
+  var channelobj = reaction.message.guild.channels.find("name", logchannel);
+	channelobj.send({embed:{ 
+    color: 0x00FF00,
+    title: "Recommendation to star message:",
+    description: "Message has reached " + reaction.count.toString() +" stars.";
+    fields: [{
+            name: "Original Message:",
+            value: reaction.message.content
+      },
+      {
+      name: "Permalink:",
+      value: reaction.message.url
+      },
+    ],
+    timestamp: new Date()
+  }});
+});
+client.on("presenceUpdate", (oldMember, newMember) => {
+  let username = newMember.user.username;
+  let id = newMember.id;
+  let oldstatus = oldMember.presence.status;
+  let newstatus = newMember.presence.status;
+  var channelobj = newMember.guild.channels.find("name", logchannel);
+  channelobj.send("User: " + username + ", with id: " + id + " has changed their presence from: " + oldstatus + " to " + newstatus);
+})
 client.on('messageDelete', message => {
     var logchannel = 0;
     if (message.guild.id == ramtid) {
