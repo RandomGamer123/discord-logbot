@@ -29,7 +29,7 @@ client.on('messageReactionAdd', (reaction, user) => {
 	channelobj.send({embed:{ 
     color: 0x00FF00,
     title: "Recommendation to star message:",
-    description: "Message has reached " + reaction.count.toString() +" stars.";
+    description: "Message has reached " + reaction.count.toString() +" stars.",
     fields: [{
             name: "Original Message:",
             value: reaction.message.content
