@@ -24,9 +24,9 @@ client.on('ready', () => {
 });
 client.on('messageReactionAdd', (reaction, user) => {
   var logchannel = 0;
-  if (message.guild.id == ramtid) {
+  if (reaction.message.guild.id == ramtid) {
     logchannel = logchannelramt;
-  } else if (message.guild.id == jclid) {
+  } else if (reaction.message.guild.id == jclid) {
     logchannel = logchanneljcl;
   } else {
       message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
@@ -52,9 +52,9 @@ client.on('messageReactionAdd', (reaction, user) => {
 });
 client.on("presenceUpdate", (oldMember, newMember) => {
   var logchannel = 0;
-  if (message.guild.id == ramtid) {
+  if (newMember.guild.id == ramtid) {
     logchannel = logchannelramt;
-  } else if (message.guild.id == jclid) {
+  } else if (newMember.guild.id == jclid) {
     logchannel = logchanneljcl;
   } else {
       message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
