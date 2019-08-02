@@ -63,6 +63,7 @@ client.on("presenceUpdate", (oldMember, newMember) => {
   let id = newMember.id;
   let oldstatus = oldMember.presence.status;
   let newstatus = newMember.presence.status;
+  if (oldstatus == newstatus) return;
   var channelobj = newMember.guild.channels.find("name", logchannel);
   channelobj.send("User: " + username + ", with id: " + id + " has changed their presence from: " + oldstatus + " to " + newstatus);
 })
