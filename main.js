@@ -272,6 +272,14 @@ client.on('message', msg => {
       msg.channel.send("Argument cannot be empty");
     }
   }
+  if (msg.content.startsWith("msglogbot:misc say -s")) {
+    var text = msg.content.slice(22);
+    if (text != "") {
+      msg.channel.send(text);
+    } else {
+      msg.channel.send("Argument cannot be empty");
+    }
+  }
   if (msg.content == "msglogbot:misc fym") {	
      var requester = msg.author.username
      msg.channel.send('fuck your mother\nRequested by: '.concat(requester));	
