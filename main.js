@@ -15,6 +15,8 @@ const logchanneljcl = "log";
 const adchannelramt = "ads";
 const token = process.env.TOKEN;
 const starpinreq = 3;
+var logpresence = false;
+const modchannel = 229998526950670336;
 console.log('Starting Up.');
 console.log(process.env.TOKEN);
 console.log(token);
@@ -51,21 +53,23 @@ client.on('messageReactionAdd', (reaction, user) => {
   }});
 });
 client.on("presenceUpdate", (oldMember, newMember) => {
-  var logchannel = 0;
-  if (newMember.guild.id == ramtid) {
-    logchannel = logchannelramt;
-  } else if (newMember.guild.id == jclid) {
-    logchannel = logchanneljcl;
-  } else {
-      message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
-  }
-  let username = newMember.user.username;
-  let id = newMember.id;
-  let oldstatus = oldMember.presence.status;
-  let newstatus = newMember.presence.status;
-  if (oldstatus == newstatus) return;
-  var channelobj = newMember.guild.channels.find("name", logchannel);
-  channelobj.send("User: " + username + ", with id: " + id + " has changed their presence from: " + oldstatus + " to " + newstatus);
+	if (logpresence == true) {
+	  var logchannel = 0;
+	  if (newMember.guild.id == ramtid) {
+	    logchannel = logchannelramt;
+	  } else if (newMember.guild.id == jclid) {
+	    logchannel = logchanneljcl;
+	  } else {
+	      message.channel.send('An error has happened, please report this to RandomGamer123 #5222 immediately');
+	  }
+	  let username = newMember.user.username;
+	  let id = newMember.id;
+	  let oldstatus = oldMember.presence.status;
+	  let newstatus = newMember.presence.status;
+	  if (oldstatus == newstatus) return;
+	  var channelobj = newMember.guild.channels.find("name", logchannel);
+	  channelobj.send("User: " + username + ", with id: " + id + " has changed their presence from: " + oldstatus + " to " + newstatus);
+	}
 })
 client.on('messageDelete', message => {
     var logchannel = 0;
@@ -163,6 +167,15 @@ client.on('message', msg => {
       }
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
+      }
+      if (msg.channel.id == modchannel) {
+	if (msg.content == "msglogbot:misc togglepresencelog") {
+		if (logpresence == true) {
+			logpresence = false;
+		} else {
+			logpresence = true;
+		}
+	}
       }
       if (msg.content == "msglogbot:teams list") {
           if (msg.guild.available) {
