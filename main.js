@@ -170,6 +170,7 @@ client.on('message', msg => {
       }
       if (msg.channel.id == modchannel) {
 	if (msg.content == "msglogbot:misc togglepresencelog") {
+		msg.channel.send("Presence toggled, or this may be buggy and didn't toggle at all.");
 		if (logpresence == true) {
 			logpresence = false;
 		} else {
