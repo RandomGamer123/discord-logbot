@@ -168,16 +168,6 @@ client.on('message', msg => {
       if (msg.content == "msglogbot:ping") {
         msg.channel.send('Pong!');
       }
-      if (msg.channel.id == modchannel) {
-	if (msg.content == "msglogbot:misc togglepresencelog") {
-		msg.channel.send("Presence toggled, or this may be buggy and didn't toggle at all.");
-		if (logpresence == true) {
-			logpresence = false;
-		} else {
-			logpresence = true;
-		}
-	}
-      }
       if (msg.content == "msglogbot:teams list") {
           if (msg.guild.available) {
             var teamroles = [];
@@ -234,6 +224,16 @@ client.on('message', msg => {
   if (msg.content == "msglogbot:help signup") {
     msg.channel.send("**Signup Module:**\nThis module has commands related to signing up.\n**Commands:**\n`msglogbot:signup - Signs you up for the minitwow that is currently in signups. (Can only be used in 1 channel)`")
   }
+if (msg.channel.id == modchannel) {
+	if (msg.content == "msglogbot:misc togglepresencelog") {
+		msg.channel.send("Presence toggled, or this may be buggy and didn't toggle at all.");
+		if (logpresence == true) {
+			logpresence = false;
+		} else {
+			logpresence = true;
+		}
+	}
+      }
   if (msg.content.startsWith("msglogbot:misc glitch -nooverflow")) {
     var text = msg.content.slice(34);
     var args = text.split(" ");
