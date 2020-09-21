@@ -1,7 +1,7 @@
 {
 "name": "discord-logbot",
   "version": "0.0.1",
-  "description": "What am I about?",
+  "description": "Generic Discord bot for message logging and other purposes made in JavaScript",
   "scripts": {
     "start": "node main.js"
   },
@@ -15,7 +15,7 @@
     "node": "9.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/my-glitch-app"
+    "url": "https://github.com/RandomGamer123/discord-logbot"
   },
   "license": "MIT"
 }
