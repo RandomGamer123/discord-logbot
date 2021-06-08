@@ -27,7 +27,7 @@ client.on('ready', () => {
 });
 client.on('guildMemberAdd', (member) => {
   if (banhonda == true) {
-    if (member.user.username..toLowerCase().includes("h0nda")) {
+    if (member.user.username.toLowerCase().includes("h0nda")) {
       member.ban();
     }
   }
