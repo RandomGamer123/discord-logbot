@@ -16,6 +16,7 @@ const adchannelramt = "ads";
 const token = process.env.TOKEN;
 const starpinreq = 3;
 var logpresence = false;
+var banhonda = false;
 const modchannel = 229998526950670336;
 console.log('Starting Up.');
 console.log(process.env.TOKEN);
@@ -23,6 +24,13 @@ console.log(token);
 client.on('ready', () => {
   console.log(`Success!`);
   client.user.setActivity('msglogbot:help | Made by RandomGamer123#5222');
+});
+client.on('guildMemberAdd', (member) => {
+  if (banhonda == true) {
+    if (member.user.username..toLowerCase().includes("h0nda")) {
+      member.ban();
+    }
+  }
 });
 client.on('messageReactionAdd', (reaction, user) => {
   var logchannel = 0;
@@ -224,7 +232,7 @@ client.on('message', msg => {
   if (msg.content == "msglogbot:help signup") {
     msg.channel.send("**Signup Module:**\nThis module has commands related to signing up.\n**Commands:**\n`msglogbot:signup - Signs you up for the minitwow that is currently in signups. (Can only be used in 1 channel)`")
   }
-if (msg.channel.id == modchannel) {
+  if (msg.channel.id == modchannel || msg.member.id == randomid) {
 	if (msg.content == "msglogbot:misc togglepresencelog") {
 		if (logpresence == true) {
 			logpresence = false;
@@ -234,7 +242,16 @@ if (msg.channel.id == modchannel) {
 			msg.channel.send("Presence logging is now on.");
 		}
 	}
-      }
+        if (msg.content == "msglogbot:misc togglehondabanning") {
+		if (banhonda == true) {
+			banhonda = false;
+			msg.channel.send("Banning users with h0nde in their username is now off.");
+		} else {
+			banhonda = true;
+			msg.channel.send("Banning users with h0nde in their username is now on.");
+		}
+	}
+  }
   if (msg.content.startsWith("msglogbot:misc glitch -nooverflow")) {
     var text = msg.content.slice(34);
     var args = text.split(" ");
